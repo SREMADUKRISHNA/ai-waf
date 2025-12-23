@@ -1,0 +1,44 @@
+[
+  {
+    "id": "sqli-001",
+    "type": "SQLi",
+    "pattern": "(?i)(\\bunion\\b.*\\bselect\\b|\\bselect\\b.*\\bfrom\\b|\\bor\\b\\s+1=1)",
+    "description": "Basic SQL Injection pattern detecting UNION SELECT or boolean bypass",
+    "severity": 9
+  },
+  {
+    "id": "sqli-002",
+    "type": "SQLi",
+    "pattern": "(?i)(;|--|\\/\\*|\\*\\/|xp_cmdshell|exec\\s+(\\(|@))",
+    "description": "SQL Injection comment or command execution attempt",
+    "severity": 10
+  },
+  {
+    "id": "xss-001",
+    "type": "XSS",
+    "pattern": "(?i)(<script>|javascript:|onerror=|onload=|eval\\()",
+    "description": "Cross-Site Scripting (XSS) via script tag or event handler",
+    "severity": 8
+  },
+  {
+    "id": "xss-002",
+    "type": "XSS",
+    "pattern": "(?i)(document\\.cookie|document\\.location|window\\.location)",
+    "description": "XSS accessing sensitive document properties",
+    "severity": 7
+  },
+  {
+    "id": "csrf-001",
+    "type": "CSRF",
+    "pattern": "(?i)(csrf_token|xsrf_token)",
+    "description": "Potential CSRF token leakage or manipulation (heuristic)",
+    "severity": 5
+  },
+  {
+    "id": "lfi-001",
+    "type": "LFI",
+    "pattern": "(?i)(\\.\\./\\.\\./|\\/etc\\/passwd|\\/windows\\/win.ini)",
+    "description": "Local File Inclusion path traversal",
+    "severity": 9
+  }
+]
